@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "category": "single_document",
+    "difficulty": "basic",
+    "query": "Summarize how the OECD Employment Outlook 2024 links the net-zero transition to changes in labour demand and job displacement risks.",
+    "expected_sources": ["OECD_Employment_Outlook_2024.pdf"],
+    "expected_citation_type": "chapter + page range",
+    "notes": "Tests single-doc retrieval on a focused topic. Should cite Ch.3 or equivalent."
+  },
+  {
+    "id": 2,
+    "category": "cross_document",
+    "difficulty": "intermediate",
+    "query": "Compare the IMF and OECD projections for global GDP growth in 2025. Highlight any differences in regional forecasts and underlying assumptions.",
+    "expected_sources": ["IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf", "OECD_Economic_Outlook_Dec_2024.pdf"],
+    "expected_citation_type": "specific tables/figures with page numbers",
+    "notes": "Tests cross-doc comparison. Numbers should be verifiable. Good test for the Verifier agent."
+  },
+  {
+    "id": 3,
+    "category": "single_document",
+    "difficulty": "basic",
+    "query": "Identify OECD recommendations to support rural or low-income workers affected by green transition policies.",
+    "expected_sources": ["OECD_Employment_Outlook_2024.pdf"],
+    "expected_citation_type": "policy recommendation sections",
+    "notes": "Tests retrieval of specific policy recommendations within a single document."
+  },
+  {
+    "id": 4,
+    "category": "cross_document",
+    "difficulty": "intermediate",
+    "query": "Based on the OECD Economic Outlook and IMF World Economic Outlook, what are the main drivers of inflation persistence and how do their assessments differ?",
+    "expected_sources": ["OECD_Economic_Outlook_Dec_2024.pdf", "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf"],
+    "expected_citation_type": "analytical sections with page numbers",
+    "notes": "Tests nuanced cross-doc comparison on a specific economic topic. Good DebateAgent candidate."
+  },
+  {
+    "id": 5,
+    "category": "single_document",
+    "difficulty": "basic",
+    "query": "Using 'How's Life? 2024', outline the major global well-being inequalities and resilience gaps that have widened post-pandemic.",
+    "expected_sources": ["OECD_Hows_Life_Wellbeing_2024.pdf"],
+    "expected_citation_type": "chapter + page range",
+    "notes": "Tests retrieval from a well-being report — different vocabulary from economic docs."
+  },
+  {
+    "id": 6,
+    "category": "single_document",
+    "difficulty": "basic",
+    "query": "Summarize UNCTAD's key recommendations for enhancing trade resilience and sustainability in the 2024 Trade and Development Report.",
+    "expected_sources": ["UNCTAD_Trade_Development_Report_2024.pdf"],
+    "expected_citation_type": "recommendation sections with page numbers",
+    "notes": "Tests retrieval from the largest document (204 pages). Good chunking stress test."
+  },
+  {
+    "id": 7,
+    "category": "cross_document",
+    "difficulty": "intermediate",
+    "query": "How do the OECD Employment Outlook and Education at a Glance reports together paint a picture of how green skills gaps affect labour market outcomes?",
+    "expected_sources": ["OECD_Employment_Outlook_2024.pdf", "OECD_Education_at_a_Glance_2024.pdf"],
+    "expected_citation_type": "chapter + page range from each",
+    "notes": "Tests cross-doc synthesis between employment and education data. Replaces broken query that referenced non-existent AI productivity doc."
+  },
+  {
+    "id": 8,
+    "category": "single_document",
+    "difficulty": "basic",
+    "query": "From WHO's World Health Statistics 2024, extract insights on how economic conditions influence access to healthcare and health outcomes globally.",
+    "expected_sources": ["WHO_World_Health_Statistics_2024.pdf"],
+    "expected_citation_type": "statistical sections with specific indicators",
+    "notes": "Tests retrieval from a statistics-heavy document. May involve table extraction."
+  },
+  {
+    "id": 9,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "Across the IMF, WHO, and OECD Economic Outlook reports, identify at least two cross-cutting risks that simultaneously affect economic growth, health outcomes, and labour markets.",
+    "expected_sources": ["OECD_Economic_Outlook_Dec_2024.pdf", "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf", "WHO_World_Health_Statistics_2024.pdf"],
+    "expected_citation_type": "multiple sections across 3 documents",
+    "notes": "Tests 3-doc cross-referencing. Should trigger PlannerAgent decomposition into sub-queries."
+  },
+  {
+    "id": 10,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "What fiscal and policy reforms are commonly proposed across OECD, IMF, and UNCTAD documents to ensure sustainable global recovery?",
+    "expected_sources": ["OECD_Economic_Outlook_Dec_2024.pdf", "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf", "UNCTAD_Trade_Development_Report_2024.pdf"],
+    "expected_citation_type": "policy recommendation sections from each",
+    "notes": "Tests consensus-finding across 3 orgs. Good DebateAgent test — do they agree or disagree?"
+  },
+  {
+    "id": 11,
+    "category": "cross_document",
+    "difficulty": "intermediate",
+    "query": "How are gender and youth employment gaps discussed across the OECD Employment Outlook and UNCTAD Trade Report, and what policy measures do they propose?",
+    "expected_sources": ["OECD_Employment_Outlook_2024.pdf", "UNCTAD_Trade_Development_Report_2024.pdf"],
+    "expected_citation_type": "specific chapters/sections on demographics",
+    "notes": "Tests demographic-focused retrieval across development and employment contexts."
+  },
+  {
+    "id": 12,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "How do the EU AI Act and the OECD's GenAI policy paper differ in their approach to regulating generative AI? Where do they converge?",
+    "expected_sources": ["EU_AI_Act_Regulation_2024.pdf", "OECD_Policy_Considerations_GenAI_2024.pdf"],
+    "expected_citation_type": "specific articles/sections with page numbers",
+    "notes": "Tests AI governance comparison — core domain. Should be a strong query for the system. Replaces broken query."
+  },
+  {
+    "id": 13,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "Which policy areas do OECD, IMF, and WHO all highlight as critical for post-pandemic resilience and productivity growth?",
+    "expected_sources": ["OECD_Economic_Outlook_Dec_2024.pdf", "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf", "WHO_World_Health_Statistics_2024.pdf"],
+    "expected_citation_type": "synthesis across 3 documents",
+    "notes": "Tests multi-org consensus. Should trigger both Planner decomposition and Debate agents."
+  },
+  {
+    "id": 14,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "Summarize international coordination challenges in achieving the UN SDGs as discussed across OECD well-being, UNCTAD trade, and WHO health reports.",
+    "expected_sources": ["UNCTAD_Trade_Development_Report_2024.pdf", "OECD_Hows_Life_Wellbeing_2024.pdf", "WHO_World_Health_Statistics_2024.pdf"],
+    "expected_citation_type": "SDG-related sections from each document",
+    "notes": "Tests SDG-focused retrieval across different domain lenses (trade, well-being, health)."
+  },
+  {
+    "id": 15,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "According to all reports, what are the shared priorities for building a sustainable, digital, and inclusive global economy between 2024 and 2030?",
+    "expected_sources": ["OECD_Employment_Outlook_2024.pdf", "UNCTAD_Trade_Development_Report_2024.pdf", "OECD_Economic_Outlook_Dec_2024.pdf"],
+    "expected_citation_type": "forward-looking/recommendation sections",
+    "notes": "Broad synthesis query. Tests whether retrieval can handle vague but important questions."
+  },
+  {
+    "id": 16,
+    "category": "single_document",
+    "difficulty": "basic",
+    "query": "What risk categories does the EU AI Act define, and what obligations apply to providers of high-risk AI systems?",
+    "expected_sources": ["EU_AI_Act_Regulation_2024.pdf"],
+    "expected_citation_type": "specific articles (Art. 5-7, Art. 9-15) with page numbers",
+    "notes": "Tests retrieval from legal/regulatory text — very different structure from policy reports."
+  },
+  {
+    "id": 17,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "How do global economic shocks propagate through employment, health systems, and trade simultaneously? Synthesize evidence from the IMF, WHO, and UNCTAD reports.",
+    "expected_sources": ["IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf", "WHO_World_Health_Statistics_2024.pdf", "UNCTAD_Trade_Development_Report_2024.pdf"],
+    "expected_citation_type": "causal chain evidence across 3 documents",
+    "notes": "Tests deep multi-doc reasoning. Replaces query that named 'Self-RAG' technique explicitly."
+  },
+  {
+    "id": 18,
+    "category": "single_document",
+    "difficulty": "basic",
+    "query": "What does the OECD's GenAI policy paper identify as the main risks and opportunities of generative AI for the economy and society?",
+    "expected_sources": ["OECD_Policy_Considerations_GenAI_2024.pdf"],
+    "expected_citation_type": "specific sections with page numbers",
+    "notes": "Tests the smallest OECD doc (40 pages). Core AI governance content. Replaces broken knowledge graph query."
+  },
+  {
+    "id": 19,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "Compare fiscal strategies for financing climate adaptation and social protection across the OECD Economic Outlook, IMF World Economic Outlook, and UNCTAD Trade Report. Where do they agree and where do they diverge?",
+    "expected_sources": ["OECD_Economic_Outlook_Dec_2024.pdf", "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf", "UNCTAD_Trade_Development_Report_2024.pdf"],
+    "expected_citation_type": "fiscal policy sections from each with specific recommendations",
+    "notes": "Tests convergence/divergence analysis. Perfect DebateAgent test case."
+  },
+  {
+    "id": 20,
+    "category": "cross_document",
+    "difficulty": "advanced",
+    "query": "What would a unified AI governance framework look like that balances innovation, employment protection, and health equity — drawing on evidence from the EU AI Act, OECD employment and AI reports, and WHO health statistics?",
+    "expected_sources": ["EU_AI_Act_Regulation_2024.pdf", "OECD_Employment_Outlook_2024.pdf", "OECD_Policy_Considerations_GenAI_2024.pdf", "WHO_World_Health_Statistics_2024.pdf"],
+    "expected_citation_type": "policy frameworks from 4 documents",
+    "notes": "Hardest query — 4-doc synthesis requiring creative integration. Tests full pipeline. Replaces technique-naming query."
+  }
+]
