@@ -1,0 +1,1160 @@
+{
+  "run_name": "run_001_baseline",
+  "timestamp": "2026-04-13T01:40:50.664184+00:00",
+  "config": {
+    "alpha": 0.5,
+    "top_k": 5,
+    "methods": [
+      "bm25",
+      "dense",
+      "hybrid"
+    ],
+    "total_chunks_in_collection": 7504,
+    "version": "v1_baseline",
+    "description": "Initial baseline evaluation with default alpha=0.5"
+  },
+  "results": {
+    "bm25": {
+      "total_queries": 20,
+      "hit_rate": 1.0,
+      "mrr": 0.9417,
+      "source_precision": 0.76,
+      "avg_latency_seconds": 0.3636,
+      "by_category": {
+        "single_document": {
+          "count": 7,
+          "hit_rate": 1.0,
+          "avg_mrr": 1.0,
+          "avg_source_precision": 0.8
+        },
+        "cross_document": {
+          "count": 13,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.9103,
+          "avg_source_precision": 0.7385
+        }
+      },
+      "by_difficulty": {
+        "basic": {
+          "count": 7,
+          "hit_rate": 1.0,
+          "avg_mrr": 1.0
+        },
+        "intermediate": {
+          "count": 4,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.875
+        },
+        "advanced": {
+          "count": 9,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.9259
+        }
+      }
+    },
+    "dense": {
+      "total_queries": 20,
+      "hit_rate": 1.0,
+      "mrr": 0.9417,
+      "source_precision": 0.77,
+      "avg_latency_seconds": 0.202,
+      "by_category": {
+        "single_document": {
+          "count": 7,
+          "hit_rate": 1.0,
+          "avg_mrr": 1.0,
+          "avg_source_precision": 0.8286
+        },
+        "cross_document": {
+          "count": 13,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.9103,
+          "avg_source_precision": 0.7385
+        }
+      },
+      "by_difficulty": {
+        "basic": {
+          "count": 7,
+          "hit_rate": 1.0,
+          "avg_mrr": 1.0
+        },
+        "intermediate": {
+          "count": 4,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.7083
+        },
+        "advanced": {
+          "count": 9,
+          "hit_rate": 1.0,
+          "avg_mrr": 1.0
+        }
+      }
+    },
+    "hybrid": {
+      "total_queries": 20,
+      "hit_rate": 1.0,
+      "mrr": 0.8833,
+      "source_precision": 0.75,
+      "avg_latency_seconds": 0.0491,
+      "by_category": {
+        "single_document": {
+          "count": 7,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.9286,
+          "avg_source_precision": 0.8
+        },
+        "cross_document": {
+          "count": 13,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.859,
+          "avg_source_precision": 0.7231
+        }
+      },
+      "by_difficulty": {
+        "basic": {
+          "count": 7,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.9286
+        },
+        "intermediate": {
+          "count": 4,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.875
+        },
+        "advanced": {
+          "count": 9,
+          "hit_rate": 1.0,
+          "avg_mrr": 0.8518
+        }
+      }
+    }
+  },
+  "per_query_details": [
+    {
+      "query_id": 1,
+      "query": "Summarize how the OECD Employment Outlook 2024 links the net-zero transition to ",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 6.6094,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 2,
+      "query": "Compare the IMF and OECD projections for global GDP growth in 2025. Highlight an",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0351,
+      "expected_sources": [
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "OECD_Economic_Outlook_Dec_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 3,
+      "query": "Identify OECD recommendations to support rural or low-income workers affected by",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0238,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 4,
+      "query": "Based on the OECD Economic Outlook and IMF World Economic Outlook, what are the ",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 0.5,
+      "source_precision": 0.8,
+      "first_relevant_rank": 2,
+      "total_results": 5,
+      "latency_seconds": 0.0402,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 5,
+      "query": "Using 'How's Life? 2024', outline the major global well-being inequalities and r",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0274,
+      "expected_sources": [
+        "OECD_Hows_Life_Wellbeing_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 6,
+      "query": "Summarize UNCTAD's key recommendations for enhancing trade resilience and sustai",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.028,
+      "expected_sources": [
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 7,
+      "query": "How do the OECD Employment Outlook and Education at a Glance reports together pa",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0362,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "OECD_Education_at_a_Glance_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 8,
+      "query": "From WHO's World Health Statistics 2024, extract insights on how economic condit",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.4,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0335,
+      "expected_sources": [
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 9,
+      "query": "Across the IMF, WHO, and OECD Economic Outlook reports, identify at least two cr",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0375,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 10,
+      "query": "What fiscal and policy reforms are commonly proposed across OECD, IMF, and UNCTA",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0301,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 11,
+      "query": "How are gender and youth employment gaps discussed across the OECD Employment Ou",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.6,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0373,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 12,
+      "query": "How do the EU AI Act and the OECD's GenAI policy paper differ in their approach ",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.4,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.035,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf",
+        "OECD_Policy_Considerations_GenAI_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 13,
+      "query": "Which policy areas do OECD, IMF, and WHO all highlight as critical for post-pand",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 0.3333,
+      "source_precision": 0.2,
+      "first_relevant_rank": 3,
+      "total_results": 5,
+      "latency_seconds": 0.028,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 14,
+      "query": "Summarize international coordination challenges in achieving the UN SDGs as disc",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.6,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0311,
+      "expected_sources": [
+        "UNCTAD_Trade_Development_Report_2024.pdf",
+        "OECD_Hows_Life_Wellbeing_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 15,
+      "query": "According to all reports, what are the shared priorities for building a sustaina",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0392,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf",
+        "OECD_Economic_Outlook_Dec_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 16,
+      "query": "What risk categories does the EU AI Act define, and what obligations apply to pr",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0287,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 17,
+      "query": "How do global economic shocks propagate through employment, health systems, and ",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0338,
+      "expected_sources": [
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 18,
+      "query": "What does the OECD's GenAI policy paper identify as the main risks and opportuni",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0354,
+      "expected_sources": [
+        "OECD_Policy_Considerations_GenAI_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 19,
+      "query": "Compare fiscal strategies for financing climate adaptation and social protection",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0474,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 20,
+      "query": "What would a unified AI governance framework look like that balances innovation,",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "bm25",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0552,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf",
+        "OECD_Employment_Outlook_2024.pdf",
+        "OECD_Policy_Considerations_GenAI_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 1,
+      "query": "Summarize how the OECD Employment Outlook 2024 links the net-zero transition to ",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 3.8025,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 2,
+      "query": "Compare the IMF and OECD projections for global GDP growth in 2025. Highlight an",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.6,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0127,
+      "expected_sources": [
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "OECD_Economic_Outlook_Dec_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 3,
+      "query": "Identify OECD recommendations to support rural or low-income workers affected by",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0127,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 4,
+      "query": "Based on the OECD Economic Outlook and IMF World Economic Outlook, what are the ",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "dense",
+      "hit": true,
+      "mrr": 0.5,
+      "source_precision": 0.8,
+      "first_relevant_rank": 2,
+      "total_results": 5,
+      "latency_seconds": 0.0125,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 5,
+      "query": "Using 'How's Life? 2024', outline the major global well-being inequalities and r",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0128,
+      "expected_sources": [
+        "OECD_Hows_Life_Wellbeing_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 6,
+      "query": "Summarize UNCTAD's key recommendations for enhancing trade resilience and sustai",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0125,
+      "expected_sources": [
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 7,
+      "query": "How do the OECD Employment Outlook and Education at a Glance reports together pa",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0116,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "OECD_Education_at_a_Glance_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 8,
+      "query": "From WHO's World Health Statistics 2024, extract insights on how economic condit",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.2,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0119,
+      "expected_sources": [
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 9,
+      "query": "Across the IMF, WHO, and OECD Economic Outlook reports, identify at least two cr",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0137,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 10,
+      "query": "What fiscal and policy reforms are commonly proposed across OECD, IMF, and UNCTA",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0126,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 11,
+      "query": "How are gender and youth employment gaps discussed across the OECD Employment Ou",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "dense",
+      "hit": true,
+      "mrr": 0.3333,
+      "source_precision": 0.4,
+      "first_relevant_rank": 3,
+      "total_results": 5,
+      "latency_seconds": 0.0134,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 12,
+      "query": "How do the EU AI Act and the OECD's GenAI policy paper differ in their approach ",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0128,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf",
+        "OECD_Policy_Considerations_GenAI_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 13,
+      "query": "Which policy areas do OECD, IMF, and WHO all highlight as critical for post-pand",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.4,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0118,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 14,
+      "query": "Summarize international coordination challenges in achieving the UN SDGs as disc",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0119,
+      "expected_sources": [
+        "UNCTAD_Trade_Development_Report_2024.pdf",
+        "OECD_Hows_Life_Wellbeing_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 15,
+      "query": "According to all reports, what are the shared priorities for building a sustaina",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0109,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf",
+        "OECD_Economic_Outlook_Dec_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 16,
+      "query": "What risk categories does the EU AI Act define, and what obligations apply to pr",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0124,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 17,
+      "query": "How do global economic shocks propagate through employment, health systems, and ",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0125,
+      "expected_sources": [
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 18,
+      "query": "What does the OECD's GenAI policy paper identify as the main risks and opportuni",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0112,
+      "expected_sources": [
+        "OECD_Policy_Considerations_GenAI_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 19,
+      "query": "Compare fiscal strategies for financing climate adaptation and social protection",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.6,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0138,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 20,
+      "query": "What would a unified AI governance framework look like that balances innovation,",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "dense",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.4,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0129,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf",
+        "OECD_Employment_Outlook_2024.pdf",
+        "OECD_Policy_Considerations_GenAI_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 1,
+      "query": "Summarize how the OECD Employment Outlook 2024 links the net-zero transition to ",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.048,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 2,
+      "query": "Compare the IMF and OECD projections for global GDP growth in 2025. Highlight an",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0492,
+      "expected_sources": [
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "OECD_Economic_Outlook_Dec_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 3,
+      "query": "Identify OECD recommendations to support rural or low-income workers affected by",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0345,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 4,
+      "query": "Based on the OECD Economic Outlook and IMF World Economic Outlook, what are the ",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 0.5,
+      "source_precision": 0.8,
+      "first_relevant_rank": 2,
+      "total_results": 5,
+      "latency_seconds": 0.0503,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 5,
+      "query": "Using 'How's Life? 2024', outline the major global well-being inequalities and r",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0416,
+      "expected_sources": [
+        "OECD_Hows_Life_Wellbeing_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 6,
+      "query": "Summarize UNCTAD's key recommendations for enhancing trade resilience and sustai",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 0.5,
+      "source_precision": 0.8,
+      "first_relevant_rank": 2,
+      "total_results": 5,
+      "latency_seconds": 0.0429,
+      "expected_sources": [
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 7,
+      "query": "How do the OECD Employment Outlook and Education at a Glance reports together pa",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0544,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "OECD_Education_at_a_Glance_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 8,
+      "query": "From WHO's World Health Statistics 2024, extract insights on how economic condit",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.4,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0403,
+      "expected_sources": [
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 9,
+      "query": "Across the IMF, WHO, and OECD Economic Outlook reports, identify at least two cr",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0536,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 10,
+      "query": "What fiscal and policy reforms are commonly proposed across OECD, IMF, and UNCTA",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0443,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 11,
+      "query": "How are gender and youth employment gaps discussed across the OECD Employment Ou",
+      "category": "cross_document",
+      "difficulty": "intermediate",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.6,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0522,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 12,
+      "query": "How do the EU AI Act and the OECD's GenAI policy paper differ in their approach ",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.4,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0591,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf",
+        "OECD_Policy_Considerations_GenAI_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 13,
+      "query": "Which policy areas do OECD, IMF, and WHO all highlight as critical for post-pand",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 0.3333,
+      "source_precision": 0.2,
+      "first_relevant_rank": 3,
+      "total_results": 5,
+      "latency_seconds": 0.041,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 14,
+      "query": "Summarize international coordination challenges in achieving the UN SDGs as disc",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.6,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0458,
+      "expected_sources": [
+        "UNCTAD_Trade_Development_Report_2024.pdf",
+        "OECD_Hows_Life_Wellbeing_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 15,
+      "query": "According to all reports, what are the shared priorities for building a sustaina",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0489,
+      "expected_sources": [
+        "OECD_Employment_Outlook_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf",
+        "OECD_Economic_Outlook_Dec_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 16,
+      "query": "What risk categories does the EU AI Act define, and what obligations apply to pr",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0441,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 17,
+      "query": "How do global economic shocks propagate through employment, health systems, and ",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 1.0,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0493,
+      "expected_sources": [
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 18,
+      "query": "What does the OECD's GenAI policy paper identify as the main risks and opportuni",
+      "category": "single_document",
+      "difficulty": "basic",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0524,
+      "expected_sources": [
+        "OECD_Policy_Considerations_GenAI_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 19,
+      "query": "Compare fiscal strategies for financing climate adaptation and social protection",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 1.0,
+      "source_precision": 0.8,
+      "first_relevant_rank": 1,
+      "total_results": 5,
+      "latency_seconds": 0.0615,
+      "expected_sources": [
+        "OECD_Economic_Outlook_Dec_2024.pdf",
+        "IMF_World_Economic_Outlook_Ch1_Apr_2024.pdf",
+        "UNCTAD_Trade_Development_Report_2024.pdf"
+      ]
+    },
+    {
+      "query_id": 20,
+      "query": "What would a unified AI governance framework look like that balances innovation,",
+      "category": "cross_document",
+      "difficulty": "advanced",
+      "method": "hybrid",
+      "hit": true,
+      "mrr": 0.3333,
+      "source_precision": 0.6,
+      "first_relevant_rank": 3,
+      "total_results": 5,
+      "latency_seconds": 0.0694,
+      "expected_sources": [
+        "EU_AI_Act_Regulation_2024.pdf",
+        "OECD_Employment_Outlook_2024.pdf",
+        "OECD_Policy_Considerations_GenAI_2024.pdf",
+        "WHO_World_Health_Statistics_2024.pdf"
+      ]
+    }
+  ]
+}
