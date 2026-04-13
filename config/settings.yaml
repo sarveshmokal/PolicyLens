@@ -1,0 +1,51 @@
+# PolicyLens Application Settings
+# These values control system behavior across all agents
+
+# Document Processing
+chunking:
+  strategy: "recursive"      # recursive | fixed | semantic
+  chunk_size: 1000            # characters per chunk
+  chunk_overlap: 200          # overlap between chunks
+  min_chunk_size: 100         # discard chunks smaller than this
+
+# Embedding Configuration
+embedding:
+  model_name: "all-MiniLM-L6-v2"
+  dimension: 384
+  batch_size: 64
+  normalize: true
+
+# Retrieval Settings
+retrieval:
+  alpha: 0.5                  # dense vs sparse weight (0=pure BM25, 1=pure dense)
+  top_k: 10                   # number of results to retrieve
+  rerank_top_k: 5             # number of results after reranking
+  similarity_threshold: 0.3   # minimum score to include result
+
+# NLI Verification
+verification:
+  nli_model: "facebook/bart-large-mnli"
+  entailment_threshold: 0.8   # minimum entailment score to accept
+  max_debate_rounds: 3        # adversarial debate iterations
+
+# LLM Provider Chain (order = failover priority)
+llm:
+  providers:
+    - name: "groq"
+      model: "llama-3.3-70b-versatile"
+      max_tokens: 2048
+      temperature: 0.3
+    - name: "ollama"
+      model: "mistral:7b"
+      max_tokens: 2048
+      temperature: 0.3
+    - name: "flan-t5"
+      model: "google/flan-t5-base"
+      max_tokens: 512
+      temperature: 0.3
+
+# Logging
+logging:
+  level: "INFO"               # DEBUG | INFO | WARNING | ERROR
+  format: "%(asctime)s | %(name)s | %(levelname)s | %(message)s"
+  file: "logs/policylens.log"

@@ -1,0 +1,97 @@
+# PolicyLens Agent Registry
+# Toggle any agent on/off without changing code
+# Order within each group defines execution sequence
+
+ingestion:
+  doc_processor:
+    enabled: true
+    module: "src.agents.ingestion.doc_processor"
+    class: "DocProcessorAgent"
+    description: "PDF parsing with PyMuPDF - extracts text, tables, metadata"
+
+  preprocessor:
+    enabled: true
+    module: "src.agents.ingestion.preprocessor"
+    class: "PreprocessorAgent"
+    description: "Text cleaning, NER, POS tagging, language detection"
+
+  embedding:
+    enabled: true
+    module: "src.agents.ingestion.embedding_agent"
+    class: "EmbeddingAgent"
+    description: "SBERT vectorization into ChromaDB"
+
+  topic_model:
+    enabled: true
+    module: "src.agents.ingestion.topic_model"
+    class: "TopicModelAgent"
+    description: "LDA/NMF topic discovery per document"
+
+analysis:
+  planner:
+    enabled: true
+    module: "src.agents.analysis.planner"
+    class: "PlannerAgent"
+    description: "Query decomposition into sub-questions"
+
+  retriever:
+    enabled: true
+    module: "src.agents.analysis.retriever"
+    class: "RetrieverAgent"
+    description: "Hybrid BM25 + SBERT dense retrieval"
+
+  reranker:
+    enabled: true
+    module: "src.agents.analysis.reranker"
+    class: "RerankerAgent"
+    description: "Cross-encoder re-scoring of retrieved passages"
+
+  synthesizer:
+    enabled: true
+    module: "src.agents.analysis.synthesizer"
+    class: "SynthesizerAgent"
+    description: "LLM answer generation with source citations"
+
+verification:
+  debate_a:
+    enabled: true
+    module: "src.agents.verification.debate_agent_a"
+    class: "DebateAgentA"
+    description: "Advocate position with supporting evidence"
+
+  debate_b:
+    enabled: true
+    module: "src.agents.verification.debate_agent_b"
+    class: "DebateAgentB"
+    description: "Challenge position and identify weaknesses"
+
+  verifier:
+    enabled: true
+    module: "src.agents.verification.verifier"
+    class: "VerifierAgent"
+    description: "Fact-check claims against source chunks"
+
+  nli:
+    enabled: true
+    module: "src.agents.verification.nli_agent"
+    class: "NLIAgent"
+    description: "BART-large-MNLI entailment scoring"
+
+support:
+  evaluator:
+    enabled: true
+    module: "src.agents.support.evaluator"
+    class: "EvaluatorAgent"
+    description: "Response quality metrics scoring"
+
+  multilingual:
+    enabled: true
+    module: "src.agents.support.multilingual"
+    class: "MultiLingualAgent"
+    description: "Language detection and translation"
+
+  guardrails:
+    enabled: true
+    module: "src.agents.support.guardrails"
+    class: "GuardrailsAgent"
+    description: "PII redaction, toxicity filtering, hallucination flags"
